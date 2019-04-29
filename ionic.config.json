@@ -1,5 +1,7 @@
 {
-  "name": "gta",
-  "integrations": {},
-  "type": "angular"
+    "name": "8gag",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "angular"
 }
