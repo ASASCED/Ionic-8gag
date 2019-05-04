@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-title>8gag</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+    <ion-card color="light" *ngFor="let post of _cap.imagenes; let idx = index">
+        <ion-img [src]="post.img"></ion-img>
+        <ion-card-content>
+            <ion-card-title>{{ post.titulo }}</ion-card-title>
+        </ion-card-content>
+        <ion-row>
+            <ion-col text-right>
+                <ion-button fill="clear" expand="small" color="primary" (click)="compartir(post)">
+                    <ion-icon slot="start" name="share-alt"></ion-icon>
+                    Compartir
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="danger" (click)="mostrarModal()">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-infinite-scroll [disabled]="masElementos" threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Cargando...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

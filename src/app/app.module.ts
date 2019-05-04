@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
+// NATIVE
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { Camera } from '@ionic-native/camera/ngx';
+
 // FIREBASE
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { Camera } from '@ionic-native/camera/ngx';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyD9z2dsdAwfupe7cSiNq1U_ZwACmCx7C-M',
@@ -26,6 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SubirPage } from './pages/subir/subir.page';
 import { PlaceholderPipe } from './pipes/placeholder.pipe';
 import { FormsModule } from '@angular/forms';
+import { CargaArchivoService } from './services/carga-archivo.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +55,10 @@ import { FormsModule } from '@angular/forms';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AngularFireDatabase,
-    Camera
+    Camera,
+    ImagePicker,
+    CargaArchivoService,
+    SocialSharing
   ],
   bootstrap: [AppComponent]
 })
